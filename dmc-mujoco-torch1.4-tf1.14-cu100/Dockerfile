@@ -117,6 +117,7 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         joblib \
         glfw \
         scikit-image \
+        box2d-py \
         gym \
         mujoco-py \
         && \

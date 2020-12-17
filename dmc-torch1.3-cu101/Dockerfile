@@ -29,20 +29,21 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
 # tools
 # ------------------------------------------------------------------
     DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
-        apt-utils \
         build-essential \
+        apt-utils \
         ca-certificates \
-        cmake \
-        sudo \
         wget \
         git \
-        g++ \
         vim \
+        curl \
+        cmake \
+        sudo \
+        g++ \
         htop \
         tmux \
-        curl \
         openssh-client \
         openssh-server \
+        qt5-default \
         openssl1.0 \
         libboost-dev \
         libboost-thread-dev \
@@ -75,7 +76,8 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
     $GIT_CLONE https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
     $GIT_CLONE https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
     chsh -s /bin/zsh && \
-    $PIP_INSTALL \
+    $PIP_INSTALL -i https://mirrors.aliyun.com/pypi/simple \
+        pip \
         absl-py \
         Cython \
         ffmpeg \
@@ -103,6 +105,7 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         joblib \
         glfw \
         scikit-image \
+        box2d-py \
         gym \
         && \
     cd /root/dependencies/ && \

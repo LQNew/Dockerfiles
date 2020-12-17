@@ -88,6 +88,7 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
     $GIT_CLONE https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
     chsh -s /bin/zsh && \
     $PIP_INSTALL -i https://mirrors.aliyun.com/pypi/simple \
+        pip \
         absl-py \
         Cython \
         ffmpeg \
@@ -115,6 +116,7 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         joblib \
         glfw \
         scikit-image \
+        box2d-py \
         gym \
         mujoco-py \
         && \
