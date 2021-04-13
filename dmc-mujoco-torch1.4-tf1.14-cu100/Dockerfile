@@ -6,6 +6,7 @@
 # tensorflow    1.14.0 (pip)
 # DMC Control Suite
 # MuJoCo
+# Atari
 # ==================================================================
 FROM liqingya/py36-cu100:torch1.4-tensorflow1.14
 
