@@ -121,7 +121,8 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         box2d-py \
         gym \
         mujoco-py \
-        atari_py \
+        atari-py \
+        opencv-python \
         && \
     cd /root/dependencies/ && \
     unzip /root/dependencies/dm_control-master.zip && \
