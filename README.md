@@ -1,7 +1,8 @@
 - Dockerfiles for RL research.
-- Recommend for reading `dmc-mujoco-torch1.4-tf1.14-cu100` dockerfile.
+- Recommend for reading `dmc-mujoco-atari-torch1.4-tf1.14-cu100` dockerfile.
   - DeepMind Control Suite
   - MuJoCo 200
+  - Atari
   - CUDA 10.0
   - Torch 1.4
   - Tensorflow 1.14
