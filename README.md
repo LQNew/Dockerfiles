@@ -17,6 +17,7 @@
   - Atari
   - CUDA 11.0
   - Torch 1.7.1
+  - ~~Tensorflow~~
 
 ### Usage of Tmux in our Docker
 ```bash
@@ -32,16 +33,14 @@ Ctrl-a + d
 ```
 
 ### Start the Container
-- As the root (not secure)
-  Example script:
+- As the root (not secure)<br>Example script:
   ```bash
   docker run --gpus all -itd --rm --name [container_name] \
     -v [local-dir]:/share \
     -it [image_name] /bin/zsh
   ```
 
-- As the user (non-root, recommend this way)
-  Example script:
+- As the user (non-root, recommend this way <br>Example script:
   ```bash
   docker run --gpus all -itd --user $(id -u ${USER}):$(id -g ${USER}) --rm --name [container_name] \
     -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro -v /home/${USER}:/home/${USER}:ro \
