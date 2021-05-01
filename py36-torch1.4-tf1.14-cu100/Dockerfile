@@ -1,11 +1,11 @@
 # ==================================================================
 # module list
 # ------------------------------------------------------------------
-# python        3.6    
+# python        3.6    (apt)
 # pytorch       1.4.0  (pip)
-# tensorflow    1.14.0 
+# tensorflow    1.14.0 (pip)
 # ==================================================================
-FROM tensorflow/tensorflow:1.14.0-gpu-py3
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 ENV LANG C.UTF-8
 
@@ -32,9 +32,28 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         unzip \
         unrar \
         && \
+    $GIT_CLONE https://github.com/Kitware/CMake ~/cmake && \
+    cd ~/cmake && \
+    ./bootstrap && \
+    make -j"$(nproc)" install && \
 # ==================================================================
 # python
 # ------------------------------------------------------------------
+    DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
+        software-properties-common \
+        && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
+        python3.6 \
+        python3.6-dev \
+        python3-distutils-extra \
+        && \
+    wget -O ~/get-pip.py \
+        https://bootstrap.pypa.io/get-pip.py && \
+    python3.6 ~/get-pip.py && \
+    ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
+    ln -s /usr/bin/python3.6 /usr/local/bin/python && \
     $PIP_INSTALL \
         pip \
         setuptools \
@@ -60,6 +79,12 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
     $PIP_INSTALL -i https://mirrors.aliyun.com/pypi/simple \
         torch==1.4.0 \
         torchvision==0.5.0 \
+        && \
+# ==================================================================
+# tensorflow
+# ------------------------------------------------------------------
+    $PIP_INSTALL -i https://mirrors.aliyun.com/pypi/simple \
+        tensorflow-gpu==1.14.0 \
         && \
 # ==================================================================
 # config & cleanup
