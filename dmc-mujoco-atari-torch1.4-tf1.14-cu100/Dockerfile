@@ -161,7 +161,7 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
 # enable all users using sudo 
 # ------------------------------------------------------------------
     cp /etc/sudoers /etc/sudoers.new && \
-    echo "%users  ALL=(ALL:ALL) ALL" >> /etc/sudoers.new  && \
+    echo "%docker ALL=(ALL:ALL) ALL" >> /etc/sudoers.new  && \
     visudo -c -f /etc/sudoers.new && \
     cp /etc/sudoers.new /etc/sudoers  && \
     rm /etc/sudoers.new
