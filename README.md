@@ -3,12 +3,12 @@
 - If you want to build docker images which support mujoco, you **must need `mjkey.txt`** for building the docker images. You can also customize the dockerfile upon our dockerfiles.
 - See the directory `dmc-mujoco-atari-torch1.4-tf1.14-cu100`, `dmc-mujoco-atari-torch1.7-cu110`, etc, for more details.
 ### Recommendation
-- If your machine can work on **CUDA 10.0**, we recommend for reading the `dmc-mujoco-atari-torch1.4-tf1.14-cu100` dockerfile. The image built by `dmc-mujoco-atari-torch1.4-tf1.14-cu100` dockerfile contains:
+- If your machine can work on **CUDA 10.0** or **CUDA 10.1**, we recommend for reading the `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile. The image built by `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile contains:
   - DeepMind Control Suite
   - MuJoCo 200
   - Atari
-  - CUDA 10.0
-  - Torch 1.4
+  - CUDA 10.0 / CUDA 10.1
+  - Torch 1.4 / Torch 1.5
   - Tensorflow 1.14
 
 - If your machine only works on **CUDA 11.x**, we recommend for reading the `dmc-mujoco-atari-torch1.7-cu110` dockerfile. The image built by `dmc-mujoco-atari-torch1.7-cu110` dockerfile contains:
