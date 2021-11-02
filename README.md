@@ -1,6 +1,7 @@
 ## Dockerfiles for DeepRL research.
 ### Dependency
-- If you want to build docker images which support mujoco, you **must need `mjkey.txt`** for building the docker images. You can also customize the dockerfile upon our dockerfiles.
+- ~~If you want to build docker images which support mujoco, you must need `mjkey.txt` for building the docker images. You can also customize the dockerfile upon our dockerfiles.~~
+- I am grateful to DeepMind for making MuJoCo free. Now, I add the `mjkey.txt` to the corresponding folder, you can directly compile the dockerfiles for running the MuJoCo environment.
 - See the directory `dmc-mujoco-atari-torch1.4-tf1.14-cu100`, `dmc-mujoco-atari-torch1.7-cu110`, etc, for more details.
 ### Recommendation
 - If your machine can work on **CUDA 10.0** or **CUDA 10.1**, we recommend for reading the `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile. The image built by `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile contains:
