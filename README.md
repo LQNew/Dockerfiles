@@ -1,7 +1,7 @@
 ## Dockerfiles for DeepRL research.
 ### Dependency
 - ~~If you want to build docker images which support mujoco, you must need `mjkey.txt` for building the docker images. You can also customize the dockerfile upon our dockerfiles.~~
-- I am grateful to DeepMind for making MuJoCo free. Now, I add the `mjkey.txt` to the corresponding folder, you can directly compile the dockerfiles for running the MuJoCo environment.
+- I am grateful to DeepMind for making MuJoCo free. Now, I add the `mjkey.txt` to the corresponding folder, you can directly compile the dockerfile for running the MuJoCo environment. Also, you can customize the dockerfile upon our dockerfiles.
 - See the directory `dmc-mujoco-atari-torch1.4-tf1.14-cu100`, `dmc-mujoco-atari-torch1.7-cu110`, etc, for more details.
 ### Recommendation
 - If your machine can work on **CUDA 10.0** or **CUDA 10.1**, we recommend for reading the `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile. The image built by `dmc-mujoco-atari-torch1.4-tf1.14-cu100` or `dmc-mujoco-atari-torch1.5-tf1.14-cu101` dockerfile contains:
@@ -20,19 +20,31 @@
   - Torch 1.7.1
   - ~~Tensorflow~~
 
+### Ready-made Docker images
+- We also provide our compiled docker images to help you run MuJoCo environment quickly.
+  ```bash
+  docker pull liqingya/mujoco:py36-torch1.4-tf1.14-cu100  # `mujoco-torch1.4-tf1.14-cu100`
+
+  docker pull liqingya/mujoco:dmc-atari-py36-torch1.4-tf1.14-cu100  # `dmc-mujoco-atari-torch1.4-tf1.14-cu100`
+
+  docker pull liqingya/mujoco:dmc-atari-py36-torch1.5-tf1.14-cu101  # `dmc-mujoco-atari-torch1.5-tf1.14-cu101`
+
+  docker pull liqingya/mujoco:dmc-atari-py36-torch1.7-cu110  # dmc-mujoco-atari-torch1.7-cu110
+  ```
+
 ### Usage of Tmux in our Docker
-We have added `.tmux.conf` to the docker image for customizing tmux usage:
-```bash
-# Pane splitting commands
-Ctrl-a + v # split pane along vertical direction
-Ctrl-a + h # split pane along horizontal direction
+- We have added `.tmux.conf` to the docker image for customizing tmux usage:
+  ```bash
+  # Pane splitting commands
+  Ctrl-a + v # split pane along vertical direction
+  Ctrl-a + h # split pane along horizontal direction
 
-# Mouse mode for fast Pane-Switching
-# We can switch pane by simply clicking the pane through the mouse.
+  # Mouse mode for fast Pane-Switching
+  # We can switch pane by simply clicking the pane through the mouse.
 
-# Switch out window
-Ctrl-a + d
-```
+  # Switch out window
+  Ctrl-a + d
+  ```
 
 ### Start the Container
 - As the root (not secure)<br>Example script:
@@ -74,3 +86,4 @@ Ctrl-a + d
     ```bash
     sudo chmod 777 /usr/local/lib/python3.6/dist-packages/mujoco_py/generated/
     ```
+
