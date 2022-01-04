@@ -125,11 +125,14 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         glfw \
         scikit-image \
         box2d-py \
-        gym \
-        mujoco-py \
+        gym==0.20.0 \
+        ale_py==0.7 \
+        autorom \
+        mujoco-py==2.0.2.13 \
         atari-py \
         opencv-python \
         && \
+    AutoROM --accept-license && \
     cd /root/dependencies/ && \
     unzip /root/dependencies/dm_control-master.zip && \
     unzip /root/dependencies/dmc2gym-master.zip && \
