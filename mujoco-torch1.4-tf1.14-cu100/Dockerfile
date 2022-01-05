@@ -28,9 +28,7 @@ RUN cd /root/dependencies/ && \
     unzip /root/dependencies/zsh-syntax-highlighting-master.zip && \
     mv /root/dependencies/ohmyzsh-master /root/.oh-my-zsh && \
     mv /root/dependencies/zsh-autosuggestions-master /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
-    mv /root/dependencies/zsh-syntax-highlighting-master /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
-    cd /root/ && \
-    rm -rf /root/dependencies
+    mv /root/dependencies/zsh-syntax-highlighting-master /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 COPY mjkey.txt /root/.mujoco/
 ENV LD_LIBRARY_PATH /root/.mujoco/mujoco200/bin:${LD_LIBRARY_PATH}
 
@@ -123,9 +121,12 @@ RUN sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &&
         glfw \
         scikit-image \
         box2d-py \
-        gym \
-        mujoco-py \
+        gym==0.20.0 \
+        mujoco-py==2.0.2.13 \
+        opencv-python \
         && \
+    cd /root/ && \
+    rm -rf /root/dependencies && \
 # ==================================================================
 # config & cleanup
 # ------------------------------------------------------------------
